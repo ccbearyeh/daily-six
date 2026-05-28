@@ -305,10 +305,8 @@ function ToggleSwitch({ checked, onChange }: ToggleProps) {
       type="button"
       role="switch"
       aria-checked={checked}
-      className={`toggle${checked ? " is-on" : ""}`}
+      className={`toggle${checked ? " on" : ""}`}
       onClick={() => onChange(!checked)}
-    >
-      <span className="toggle-thumb" aria-hidden="true" />
-    </button>
+    />
   );
 }
