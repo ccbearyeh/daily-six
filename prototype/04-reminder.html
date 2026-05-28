@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>畫面 4 · 主動提醒 — Daily Six</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="proto-page">
+    <header class="proto-header">
+      <div>
+        <h1>畫面 4 — 主動提醒展示 (Active Reminders)</h1>
+        <div class="proto-meta">對應 SPEC.md §2 FR-5 · §8</div>
+      </div>
+      <nav class="proto-nav">
+        <a href="03-rollover.html">← 上一個</a>
+        <a href="index.html">返回導覽</a>
+        <a href="en/05-settings.html">下一個 →</a>
+      </nav>
+    </header>
+
+    <div class="reminder-grid">
+
+      <section class="reminder-card">
+        <h2>1. Toolbar Badge 計數</h2>
+        <p>
+          擴充功能按鈕上的小徽章即時反映「今日剩餘未完成數」。
+          由 Service Worker 訂閱 <code>chrome.storage.onChanged</code>，每次任務勾選後立即更新。
+        </p>
+
+        <div style="display:flex; gap:32px; align-items:center; flex-wrap:wrap; margin-top:8px;">
+          <div>
+            <div class="toolbar-mock">
+              <div class="toolbar-icon">
+                <span class="toolbar-icon-emoji" aria-hidden="true">6</span>
+                <span class="badge">5</span>
+              </div>
+              <span class="toolbar-tooltip">Daily Six · 還剩 5 項</span>
+            </div>
+            <p style="margin-top:8px; font-size:12px; color:var(--text-dim);">剛開始（5 / 6 未完成）</p>
+          </div>
+
+          <div>
+            <div class="toolbar-mock">
+              <div class="toolbar-icon">
+                <span class="toolbar-icon-emoji" aria-hidden="true">6</span>
+                <span class="badge">2</span>
+              </div>
+              <span class="toolbar-tooltip">Daily Six · 還剩 2 項</span>
+            </div>
+            <p style="margin-top:8px; font-size:12px; color:var(--text-dim);">下午進度（2 / 6 未完成）</p>
+          </div>
+
+          <div>
+            <div class="toolbar-mock">
+              <div class="toolbar-icon">
+                <span class="toolbar-icon-emoji" aria-hidden="true">6</span>
+                <span class="badge done">✓</span>
+              </div>
+              <span class="toolbar-tooltip">Daily Six · 今日完成</span>
+            </div>
+            <p style="margin-top:8px; font-size:12px; color:var(--text-dim);">收工（全部完成）</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reminder-card">
+        <h2>2. 桌面通知（chrome.notifications）</h2>
+        <p>
+          由 <code>chrome.alarms</code> 排程觸發。使用者可在設定頁開關每一種、調整時間。
+          點擊通知會呼叫 <code>chrome.sidePanel.open()</code> 直接帶到 Side Panel。
+        </p>
+
+        <div style="display:flex; flex-direction:column; gap:14px; margin-top:8px;">
+
+          <div class="notification-mock">
+            <div class="app-icon">6</div>
+            <div class="body">
+              <strong>今天還沒寫今日 6 項</strong>
+              <span>花 5 分鐘規劃，剩下的時間更值錢。</span>
+            </div>
+            <div class="meta">08:00</div>
+          </div>
+          <p style="font-size:12px; color:var(--text-dim); margin-top:-4px;">⤴ 晨間規劃通知（預設 08:00，可關）</p>
+
+          <div class="notification-mock">
+            <div class="app-icon">6</div>
+            <div class="body">
+              <strong>在「回覆客戶 Acme 的合約問題」上卡住了嗎？</strong>
+              <span>已專注 92 分鐘 — 需要拆解或先放下？</span>
+            </div>
+            <div class="meta">11:34</div>
+          </div>
+          <p style="font-size:12px; color:var(--text-dim); margin-top:-4px;">⤴ 停滯提醒（Active Task 超過 90 分鐘且工作時段）</p>
+
+          <div class="notification-mock">
+            <div class="app-icon">6</div>
+            <div class="body">
+              <strong>今天完成了 4 / 6</strong>
+              <span>要規劃明天嗎？把未完成項處理掉，今晚就睡得好一點。</span>
+            </div>
+            <div class="meta">21:00</div>
+          </div>
+          <p style="font-size:12px; color:var(--text-dim); margin-top:-4px;">⤴ 晚間回顧通知（預設 21:00，可關）</p>
+
+        </div>
+      </section>
+
+      <section class="reminder-card">
+        <h2>3. 為什麼 Side Panel 不自動彈出？</h2>
+        <p style="margin-bottom: 0;">
+          Chrome 限制 <code>chrome.sidePanel.open()</code> 必須在「使用者手勢」事件中呼叫
+          （點擊工具列按鈕、點擊通知等），不能由 alarm / timer 自動觸發。
+          這是為了避免擴充功能無端霸佔螢幕。
+          因此 Daily Six 採「Badge + 通知」的雙軌策略：Badge 提供安靜的視覺指標，
+          通知用於需要使用者主動接管的情境，並在通知點擊時順勢開啟 Side Panel。
+        </p>
+      </section>
+    </div>
+
+    <section class="proto-notes">
+      <h2>實作要點</h2>
+      <ul>
+        <li>Badge 更新邏輯封裝在 <code>background.ts</code>，避免散佈在 React view 中。</li>
+        <li>所有通知標題／內文走 i18n key（見 SPEC §8.3），讓繁中 / 英文版本一致。</li>
+        <li>停滯提醒需偵測「工作時段」設定（預設 09:00–18:00），避免在深夜送出。</li>
+        <li>通知去重：同一時段不重複發送（用 <code>chrome.notifications.create(notificationId)</code> 的相同 ID 覆蓋）。</li>
+        <li>OS 通知被封鎖時，App 內顯示 banner 提示使用者前往系統設定授權。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

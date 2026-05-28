@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Daily Six — Rollover</title>
+    <link rel="stylesheet" href="_layout.css" />
+  </head>
+  <body>
+    <main class="hero">
+      <section class="hero-copy">
+        <span class="hero-eyebrow">Smart Rollover · 智慧結轉</span>
+        <h1 class="hero-headline">
+          Yesterday's leftovers. <em>Your call.</em>
+        </h1>
+        <p class="hero-headline-zh">
+          沒做完的事，<em>你來決定</em>
+        </p>
+        <p class="hero-sub">
+          Open the panel and unfinished items ask you: bring them to today, or let them go? You stay in charge.
+        </p>
+        <p class="hero-sub-zh">
+          隔天打開側邊欄，未完成的會問你：要帶到今天，還是放下？選擇權永遠在你。
+        </p>
+        <ul class="hero-bullets">
+          <li>Nothing piles up into stress silently <span class="bullet-zh">· 不會自動累積成壓力</span></li>
+          <li>Every item gets an explicit choice <span class="bullet-zh">· 每件事都要明確選擇</span></li>
+          <li>Let-go items stay in history, never lost <span class="bullet-zh">· 放下的留在歷史紀錄</span></li>
+        </ul>
+        <p class="hero-foot">Six max per day · 帶過來的也算 · including rollovers</p>
+      </section>
+
+      <aside class="panel-frame">
+        <div class="side-panel" style="filter: brightness(0.96);">
+          <header class="sp-header">
+            <div class="sp-brand">
+              <span class="sp-brand-mark">6</span>
+              <span>Daily Six</span>
+              <span class="sp-date">週二 5/26</span>
+            </div>
+            <div class="sp-header-actions">
+              <button class="sp-lang-toggle" type="button">EN</button>
+              <button class="sp-icon-btn" type="button" aria-label="Settings">⚙</button>
+            </div>
+          </header>
+          <div class="sp-body" style="opacity: 0.5;">
+            <p class="planning-prompt">為今天挑出最重要的六件事</p>
+            <ul class="task-list">
+              <li class="task-input-row is-empty">
+                <span class="task-number">1</span>
+                <span class="task-input" style="color: var(--locked)">輸入第一件事…</span>
+              </li>
+              <li class="task-input-row is-empty">
+                <span class="task-number">2</span>
+                <span class="task-input" style="color: var(--locked)">Task 2…</span>
+              </li>
+              <li class="task-input-row is-empty">
+                <span class="task-number">3</span>
+                <span class="task-input" style="color: var(--locked)">輸入第三件事…</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Rollover dialog overlay -->
+        <div class="dialog-backdrop">
+          <div class="dialog">
+            <h2>昨天還有 3 件沒做完 · 3 unfinished</h2>
+            <p>勾選要帶到今天的，沒勾的會留在 5/25 的紀錄裡。<br/>Check what moves to today — the rest stays in yesterday's log.</p>
+            <ul class="dialog-list">
+              <li class="dialog-item">
+                <span class="dialog-checkbox">✓</span>
+                <span class="dialog-task">Reply to Alex re: contract</span>
+                <span class="dialog-source-tag">昨日</span>
+              </li>
+              <li class="dialog-item">
+                <span class="dialog-checkbox">✓</span>
+                <span class="dialog-task">整理本週 OKR 進度</span>
+                <span class="dialog-source-tag">昨日</span>
+              </li>
+              <li class="dialog-item">
+                <span class="dialog-checkbox unchecked">·</span>
+                <span class="dialog-task">研究新訂閱方案 · Research pricing</span>
+                <span class="dialog-source-tag">昨日</span>
+              </li>
+            </ul>
+            <div class="dialog-actions">
+              <button class="btn btn-ghost" type="button">全部放下 · Discard</button>
+              <button class="btn btn-primary" type="button">帶 2 件到今天 · Move 2</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>

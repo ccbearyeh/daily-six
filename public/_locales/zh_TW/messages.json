@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "Daily Six",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "選出今天的 6 件事，依序完成 — 把 Ivy Lee 方法放進 Side Panel。",
+    "description": "Extension description for Chrome Web Store."
+  },
+  "actionTitle": {
+    "message": "Daily Six — 開啟側邊欄",
+    "description": "Tooltip on toolbar icon."
+  }
+}

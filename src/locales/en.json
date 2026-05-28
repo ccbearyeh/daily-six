@@ -1,0 +1,77 @@
+{
+  "app": {
+    "title": "Daily Six",
+    "brand": "Daily Six"
+  },
+  "header": {
+    "settings": "Settings",
+    "back": "Back",
+    "switchLang": "Switch language"
+  },
+  "planning": {
+    "prompt": "List your six most important things today, in priority order. Order is execution order.",
+    "placeholder": "Task {{n}}…",
+    "lockCta": "Lock & start",
+    "filledOf": "{{filled}} / {{total}} filled",
+    "remove": "Remove",
+    "max": "Six is the limit.",
+    "empty": "Start with task 1 — write down what matters today."
+  },
+  "focus": {
+    "prompt": "In progress · Task {{n}}",
+    "complete": "Mark done",
+    "focusedFor": "Focused {{duration}}",
+    "lockedHint": "Finish task {{n}} first",
+    "completed": "Completed ({{n}})",
+    "undoLast": "Undo last",
+    "allDoneTitle": "✨ All done today",
+    "allDoneSub": "{{n}} tasks completed — well done.",
+    "planNext": "Plan tomorrow",
+    "progressFooter": "{{done}} / {{total}} done"
+  },
+  "rollover": {
+    "title": "{{n}} unfinished from yesterday",
+    "body": "Which should move to today? Unchecked items will be archived.",
+    "moveCta": "Move {{n}} to today",
+    "discardAll": "Discard all"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "languageDesc": "Applies immediately, no reload needed.",
+    "reminders": "Reminders",
+    "morningPlan": "Morning plan",
+    "morningPlanDesc": "Nudge to write today's six.",
+    "eveningReview": "Evening review",
+    "eveningReviewDesc": "Recap done count and plan tomorrow.",
+    "staleFocus": "Stuck nudge",
+    "staleFocusDesc": "When active task lasts > {{n}} min in work hours.",
+    "data": "Data",
+    "retention": "History retention",
+    "retentionDesc": "Older days are pruned automatically.",
+    "export": "Export as JSON",
+    "exportDesc": "Download a snapshot of all days.",
+    "exportBtn": "Export",
+    "reset": "Reset everything",
+    "resetDesc": "Type DELETE to confirm.",
+    "resetBtn": "Reset…",
+    "resetConfirmTitle": "Clear all data?",
+    "resetConfirmBody": "This cannot be undone. Type DELETE to confirm.",
+    "resetConfirmCta": "Delete permanently",
+    "about": "About",
+    "version": "Version",
+    "feedback": "Send feedback",
+    "saved": "All changes saved.",
+    "done": "Done",
+    "support": "Support",
+    "supportDesc": "If this app helps you, buy me a coffee.",
+    "supportBtn": "☕ Buy me a coffee"
+  },
+  "common": {
+    "minutes": "min",
+    "days": "days",
+    "cancel": "Cancel",
+    "off": "Off",
+    "on": "On"
+  }
+}

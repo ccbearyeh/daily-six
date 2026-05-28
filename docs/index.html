@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Six — Six things. One at a time. · 每天六件事</title>
+    <meta
+      name="description"
+      content="A Chrome Side Panel to-do tool built on the Ivy Lee Method. Six tasks a day, in order, 100% local. 每天六件事，一次只做一件，資料只存在你的瀏覽器。"
+    />
+    <link rel="icon" type="image/png" href="./icon-128.png" />
+    <style>
+      :root {
+        --bg: #fafaf7;
+        --surface: #ffffff;
+        --border: #e5e3dc;
+        --text: #1a1a1a;
+        --text-dim: #6b6b65;
+        --locked: #a0a09a;
+        --accent: #2a4d6e;
+        --accent-soft: #e8eef4;
+        --success: #5a7a6a;
+        --danger: #b5483d;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background:
+          radial-gradient(circle at 88% 6%, rgba(42, 77, 110, 0.08) 0%, transparent 45%),
+          linear-gradient(180deg, #fafaf7 0%, #f1eee6 100%);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+      .wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 40px 24px 72px;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 56px;
+      }
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+        background: var(--accent);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .brand-name {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .topbar nav {
+        margin-left: auto;
+        display: flex;
+        gap: 20px;
+      }
+      .topbar nav a {
+        font-size: 14px;
+        color: var(--text-dim);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .topbar nav a:hover {
+        color: var(--accent);
+      }
+      .hero {
+        text-align: center;
+        margin-bottom: 44px;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-weight: 600;
+        margin-bottom: 22px;
+      }
+      h1 {
+        font-size: 46px;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        margin: 0 0 10px;
+      }
+      h1 em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .headline-zh {
+        font-size: 26px;
+        line-height: 1.25;
+        font-weight: 600;
+        color: var(--text-dim);
+        letter-spacing: -0.01em;
+        margin: 0 0 24px;
+      }
+      .headline-zh em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .lead {
+        max-width: 620px;
+        margin: 0 auto 8px;
+        font-size: 17px;
+        color: var(--text);
+      }
+      .lead-zh {
+        max-width: 620px;
+        margin: 0 auto 28px;
+        font-size: 15px;
+        color: var(--text-dim);
+      }
+      .cta {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: #22405c;
+      }
+      .btn-ghost {
+        background: var(--surface);
+        color: var(--accent);
+        border-color: var(--border);
+      }
+      .btn-ghost:hover {
+        background: var(--accent-soft);
+      }
+      .badges {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .badge {
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        padding: 5px 11px;
+      }
+      .shot {
+        margin: 40px auto 0;
+        max-width: 720px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 18px 50px rgba(42, 77, 110, 0.12);
+        background: var(--surface);
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 56px 0 0;
+      }
+      .feature {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px 20px;
+      }
+      .feature h3 {
+        margin: 0 0 6px;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+      }
+      .feature p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--text-dim);
+      }
+      footer {
+        margin-top: 64px;
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        color: var(--text-dim);
+        font-size: 13px;
+      }
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 560px) {
+        h1 {
+          font-size: 34px;
+        }
+        .headline-zh {
+          font-size: 21px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <span class="brand-mark">6</span>
+        <span class="brand-name">Daily Six</span>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="./privacy.html">Privacy · 隱私</a>
+        </nav>
+      </div>
+
+      <section class="hero">
+        <span class="eyebrow">Ivy Lee Method · Chrome Side Panel</span>
+        <h1>Six things. <em>One at a time.</em></h1>
+        <p class="headline-zh">每天 <em>六件事</em>，一次只做一件</p>
+        <p class="lead">
+          A dead-simple to-do tool that lives in your Chrome Side Panel. Pick
+          six tasks the night before, do them in order, and actually finish
+          your day.
+        </p>
+        <p class="lead-zh">
+          一個住在 Chrome 側邊欄的極簡待辦工具。前一晚挑出六件事，依序完成，真正把一天結束掉。
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#" rel="noopener"
+            >Chrome Web Store（即將上架 · coming soon）</a
+          >
+          <a class="btn btn-ghost" href="./privacy.html">Privacy Policy · 隱私政策</a>
+        </div>
+        <div class="badges">
+          <span class="badge">Side Panel</span>
+          <span class="badge">100% Local</span>
+          <span class="badge">No Tracking</span>
+          <span class="badge">中 ／ English</span>
+        </div>
+      </section>
+
+      <div class="shot">
+        <img
+          src="./screenshot-focus.png"
+          alt="Daily Six focus view — one task at a time in the Chrome Side Panel"
+        />
+      </div>
+
+      <section class="features" id="features">
+        <div class="feature">
+          <h3>One at a time · 一次一件</h3>
+          <p>
+            Only the current task is unlocked. No endless list to stare at — just
+            the next thing. 只解鎖目前這一件，沒有無止盡的清單，只有下一步。
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Six max · 最多六件</h3>
+          <p>
+            Six tasks a day, rollovers included. A real sense of done instead of
+            a growing backlog. 每天最多六件（含結轉），給你明確的完成感。
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Smart rollover · 智慧結轉</h3>
+          <p>
+            Unfinished items ask you each morning: bring to today, or let go? You
+            stay in charge. 未完成的隔天會問你：帶到今天還是放下？
+          </p>
+        </div>
+        <div class="feature">
+          <h3>100% local · 完全本機</h3>
+          <p>
+            No account, no server, no tracking. Everything stays in your browser.
+            不需帳號、沒有伺服器、不追蹤，資料只存在你的瀏覽器。
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Bilingual · 中英雙語</h3>
+          <p>
+            Switch between 中文 and English instantly — UI and notifications
+            follow. 介面與通知都能在中英間即時切換。
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Your pace · 你的節奏</h3>
+          <p>
+            Optional reminders, adjustable retention, one-click JSON export. 提醒可關、保留天數可調、一鍵匯出 JSON。
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        Daily Six · Made for people who want to finish their day. ·
+        <a href="./privacy.html">Privacy Policy · 隱私政策</a> ·
+        <a href="mailto:shawn@orientalwow.com">Contact</a>
+      </footer>
+    </div>
+  </body>
+</html>

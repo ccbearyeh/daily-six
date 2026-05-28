@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>畫面 2 · 焦點模式 — Daily Six</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="proto-page">
+    <header class="proto-header">
+      <div>
+        <h1>畫面 2 — 焦點模式 (Focus View)</h1>
+        <div class="proto-meta">對應 SPEC.md §2 FR-3 · §7.2.2</div>
+      </div>
+      <nav class="proto-nav">
+        <a href="01-planning.html">← 上一個</a>
+        <a href="index.html">返回導覽</a>
+        <a href="03-rollover.html">下一個 →</a>
+      </nav>
+    </header>
+
+    <section class="side-panel" aria-label="Side Panel 預覽">
+      <header class="sp-header">
+        <div class="sp-brand">
+          <span class="sp-brand-mark">6</span>
+          <span>Daily Six</span>
+        </div>
+        <div class="sp-header-actions">
+          <span class="sp-date">2026-05-25 (一)</span>
+          <button class="sp-lang-toggle" title="切換語言">中</button>
+          <button class="sp-icon-btn" title="設定" aria-label="設定">⚙</button>
+        </div>
+      </header>
+
+      <div class="sp-body">
+        <div class="focus-prompt">進行中 · 第 2 項</div>
+
+        <article class="active-task" aria-current="step">
+          <div class="active-task-header">
+            <span class="active-task-number">2</span>
+            <span class="active-task-timer">已專注 18 分鐘</span>
+          </div>
+          <h2 class="active-task-text">回覆客戶 Acme 的合約問題</h2>
+          <button class="active-task-cta">
+            <span aria-hidden="true">✓</span>
+            <span>標記完成</span>
+          </button>
+        </article>
+
+        <ul class="locked-list" aria-label="後續任務（鎖定）">
+          <li class="locked-task">
+            <span class="task-number">3</span>
+            <span class="locked-task-text">和 Sam 1:1 並寫下 takeaway</span>
+            <span class="locked-task-icon" aria-label="鎖定中">🔒</span>
+          </li>
+          <li class="locked-task">
+            <span class="task-number">4</span>
+            <span class="locked-task-text">運動 30 分鐘</span>
+            <span class="locked-task-icon" aria-label="鎖定中">🔒</span>
+          </li>
+          <li class="locked-task">
+            <span class="task-number">5</span>
+            <span class="locked-task-text">讀 Zero to One 第 7 章</span>
+            <span class="locked-task-icon" aria-label="鎖定中">🔒</span>
+          </li>
+          <li class="locked-task">
+            <span class="task-number">6</span>
+            <span class="locked-task-text">寫週報 + 規劃明日 6 項</span>
+            <span class="locked-task-icon" aria-label="鎖定中">🔒</span>
+          </li>
+        </ul>
+
+        <details class="completed-fold">
+          <summary>✓ 已完成 (1)</summary>
+          <ul class="completed-list">
+            <li class="completed-task">
+              <span class="check-mark" aria-hidden="true">✓</span>
+              <span class="completed-task-text">完成 Q2 OKR 提案初稿</span>
+              <span class="completed-task-time">09:42</span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <footer class="sp-footer">
+        <span class="sp-progress">1 / 6 完成 · 預計完成 18:30</span>
+        <button class="btn btn-ghost">回顧</button>
+      </footer>
+    </section>
+
+    <p class="proto-caption">↑ Chrome Side Panel · 寬 400px</p>
+
+    <section class="proto-notes">
+      <h2>視覺重點</h2>
+      <ul>
+        <li><strong>Active Task</strong>（第 2 項）：白底卡片、深藍邊框、字級放大到 18px、附計時器與單一行動按鈕。</li>
+        <li><strong>Locked Tasks</strong>（3–6）：opacity 0.55、右側 🔒 圖示。設計上「看得到、無法點」 — 點擊勾選框 UI 上會輕震並 Toast「請先完成第 N 項」。</li>
+        <li><strong>已完成</strong>：摺疊區，預設收起避免分散注意力；展開後劃線 + 完成時間。</li>
+        <li>頁面進入焦點階段後，<strong>禁止拖曳排序</strong>（拖曳手柄消失）— 對應 SPEC.md FR-2。</li>
+        <li>Footer「預計完成 18:30」為可選 v1.1 功能：以歷史平均每項耗時推算，本原型僅展示視覺位置。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

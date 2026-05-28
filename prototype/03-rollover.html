@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>畫面 3 · 跨日轉移 — Daily Six</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="proto-page">
+    <header class="proto-header">
+      <div>
+        <h1>畫面 3 — 跨日轉移對話框 (Rollover Dialog)</h1>
+        <div class="proto-meta">對應 SPEC.md §2 FR-4 · §7.2.3</div>
+      </div>
+      <nav class="proto-nav">
+        <a href="02-focus.html">← 上一個</a>
+        <a href="index.html">返回導覽</a>
+        <a href="04-reminder.html">下一個 →</a>
+      </nav>
+    </header>
+
+    <section class="side-panel" aria-label="Side Panel 預覽">
+      <header class="sp-header">
+        <div class="sp-brand">
+          <span class="sp-brand-mark">6</span>
+          <span>Daily Six</span>
+        </div>
+        <div class="sp-header-actions">
+          <span class="sp-date">2026-05-26 (二)</span>
+          <button class="sp-lang-toggle" title="切換語言">中</button>
+          <button class="sp-icon-btn" title="設定" aria-label="設定">⚙</button>
+        </div>
+      </header>
+
+      <div class="sp-body" aria-hidden="true" style="filter: blur(1px); opacity: 0.6;">
+        <p class="planning-prompt">列出你今天最重要的 6 件事…</p>
+        <div class="task-input-row is-empty">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">1</span>
+          <input class="task-input" placeholder="第 1 項任務…" />
+        </div>
+        <div class="task-input-row is-empty">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">2</span>
+          <input class="task-input" placeholder="第 2 項任務…" />
+        </div>
+        <div class="task-input-row is-empty">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">3</span>
+          <input class="task-input" placeholder="第 3 項任務…" />
+        </div>
+      </div>
+
+      <div class="dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="rollover-title">
+        <div class="dialog">
+          <h2 id="rollover-title">昨天有 3 項任務未完成</h2>
+          <p>要把哪些移到今天？取消勾選的項目將被歸檔，不再出現在清單中。</p>
+
+          <ul class="dialog-list">
+            <li class="dialog-item">
+              <span class="dialog-checkbox" aria-label="已選取">✓</span>
+              <span class="dialog-task">和 Sam 1:1 並寫下 takeaway</span>
+              <span class="dialog-source-tag">05-25</span>
+            </li>
+            <li class="dialog-item">
+              <span class="dialog-checkbox" aria-label="已選取">✓</span>
+              <span class="dialog-task">運動 30 分鐘</span>
+              <span class="dialog-source-tag">05-25</span>
+            </li>
+            <li class="dialog-item">
+              <span class="dialog-checkbox unchecked" aria-label="未選取">·</span>
+              <span class="dialog-task">讀 Zero to One 第 7 章</span>
+              <span class="dialog-source-tag">05-25</span>
+            </li>
+          </ul>
+
+          <div class="dialog-actions">
+            <button class="btn btn-danger-ghost">全部捨棄</button>
+            <button class="btn btn-primary">轉移 2 項到今天</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="proto-caption">↑ Chrome Side Panel · 寬 400px · 模態對話框疊加</p>
+
+    <section class="proto-notes">
+      <h2>視覺與邏輯重點</h2>
+      <ul>
+        <li>對話框出現時，背後的規劃畫面以 <code>filter: blur(1px)</code> + 半透明灰罩處理，明示「先完成這個決定」。</li>
+        <li>預設勾選全部：使用者只需取消「不想接著做」的項目，降低決策成本。</li>
+        <li>右下角主要 CTA 文字會隨勾選數量動態變化：「轉移 N 項到今天」；若全取消會切換為「全部捨棄並繼續」。</li>
+        <li>每項任務後方標籤顯示來源日期；若連續多日未開，會合併並顯示原始日期（例如 <code>05-23</code> / <code>05-24</code>）。</li>
+        <li>對話框<strong>沒有「之後再說」</strong> — 強制做決定，避免使用者用拖延繞過取捨。</li>
+        <li>確認後，被轉移的任務以 <code>carriedFrom: "2026-05-25"</code> 標記插入今日清單前段。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

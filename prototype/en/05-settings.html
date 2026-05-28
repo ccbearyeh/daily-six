@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Screen 5 · Settings — Daily Six</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <main class="proto-page">
+    <header class="proto-header">
+      <div>
+        <h1>Screen 5 — Settings View (English)</h1>
+        <div class="proto-meta">SPEC.md §2 FR-6 · §9 · i18n showcase</div>
+      </div>
+      <nav class="proto-nav">
+        <a href="../04-reminder.html">← Previous</a>
+        <a href="../index.html">Back to index</a>
+      </nav>
+    </header>
+
+    <section class="side-panel" aria-label="Side Panel preview">
+      <header class="sp-header">
+        <div class="sp-brand">
+          <span class="sp-brand-mark">6</span>
+          <span>Daily Six</span>
+        </div>
+        <div class="sp-header-actions">
+          <span class="sp-date">Mon, May 25</span>
+          <button class="sp-lang-toggle" title="Switch language">EN</button>
+          <button class="sp-icon-btn" title="Back to list" aria-label="Back">×</button>
+        </div>
+      </header>
+
+      <div class="sp-body">
+        <div class="settings-group">
+          <h3>Language</h3>
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>Display language</span>
+              <small>Applies immediately, no reload needed.</small>
+            </div>
+            <div class="lang-options" role="radiogroup" aria-label="Language">
+              <span class="lang-option" role="radio" aria-checked="false">繁中</span>
+              <span class="lang-option active" role="radio" aria-checked="true">EN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Reminders</h3>
+
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>Morning plan</span>
+              <small>Nudge to write today's six.</small>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span class="time-pill">08:00</span>
+              <span class="toggle on" role="switch" aria-checked="true"></span>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>Evening review</span>
+              <small>Recap done count and plan tomorrow.</small>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span class="time-pill">21:00</span>
+              <span class="toggle on" role="switch" aria-checked="true"></span>
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>Stuck nudge</span>
+              <small>When active task lasts &gt; 90 min in work hours.</small>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span class="time-pill">90 min</span>
+              <span class="toggle" role="switch" aria-checked="false"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Data</h3>
+
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>History retention</span>
+              <small>Older days are pruned automatically.</small>
+            </div>
+            <div class="settings-control">30 days ▾</div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>Export as JSON</span>
+              <small>Download a snapshot of all days.</small>
+            </div>
+            <button class="btn btn-ghost">Export</button>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>Reset everything</span>
+              <small>Type DELETE to confirm.</small>
+            </div>
+            <button class="btn btn-danger-ghost">Reset…</button>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>About</h3>
+          <div class="settings-row">
+            <div class="settings-label">
+              <span>Version</span>
+              <small>0.1.0 (draft) · MIT</small>
+            </div>
+            <div class="settings-control">Send feedback ↗</div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="sp-footer">
+        <span class="sp-progress">All changes saved.</span>
+        <button class="btn btn-ghost">Done</button>
+      </footer>
+    </section>
+
+    <p class="proto-caption">↑ Chrome Side Panel · 400px wide · locale = en</p>
+
+    <section class="proto-notes">
+      <h2>i18n showcase</h2>
+      <ul>
+        <li>This is the same Settings view as zh-TW, rendered with <code>locale = "en"</code>. Compare the language pill in the top right: <strong>EN</strong> active here, <strong>中</strong> in other screens.</li>
+        <li>All visible strings come from <code>src/locales/en.json</code>. No hard-coded literals in JSX (enforced by ESLint).</li>
+        <li>Manifest-level strings (extension name, action tooltip) come from <code>_locales/en/messages.json</code> via <code>chrome.i18n</code> — see SPEC.md §9.1 for why we need <em>both</em> systems.</li>
+        <li>Switching language toggle here updates <code>settings.locale</code> in <code>chrome.storage.local</code> and calls <code>i18n.changeLanguage()</code> — no page reload.</li>
+        <li>Date format ("Mon, May 25") follows <code>Intl.DateTimeFormat(locale)</code>; in zh-TW it becomes "2026-05-25 (一)".</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>畫面 1 · 規劃階段 — Daily Six</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="proto-page">
+    <header class="proto-header">
+      <div>
+        <h1>畫面 1 — 規劃階段 (Planning View)</h1>
+        <div class="proto-meta">對應 SPEC.md §2 FR-1 / FR-2 · §7.2.1</div>
+      </div>
+      <nav class="proto-nav">
+        <a href="index.html">← 返回導覽</a>
+        <a href="02-focus.html">下一個 →</a>
+      </nav>
+    </header>
+
+    <section class="side-panel" aria-label="Side Panel 預覽">
+      <header class="sp-header">
+        <div class="sp-brand">
+          <span class="sp-brand-mark">6</span>
+          <span>Daily Six</span>
+        </div>
+        <div class="sp-header-actions">
+          <span class="sp-date">2026-05-25 (一)</span>
+          <button class="sp-lang-toggle" title="切換語言">中</button>
+          <button class="sp-icon-btn" title="設定" aria-label="設定">⚙</button>
+        </div>
+      </header>
+
+      <div class="sp-body">
+        <p class="planning-prompt">列出你今天最重要的 6 件事，依優先級排序。完成順序即執行順序。</p>
+
+        <div class="task-input-row">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">1</span>
+          <span class="task-input">完成 Q2 OKR 提案初稿</span>
+        </div>
+
+        <div class="task-input-row is-dragging">
+          <span class="drop-indicator" aria-hidden="true"></span>
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">2</span>
+          <span class="task-input">回覆客戶 Acme 的合約問題</span>
+        </div>
+
+        <div class="task-input-row">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">3</span>
+          <span class="task-input">和 Sam 1:1 並寫下 takeaway</span>
+        </div>
+
+        <div class="task-input-row">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">4</span>
+          <span class="task-input">運動 30 分鐘</span>
+        </div>
+
+        <div class="task-input-row">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">5</span>
+          <span class="task-input">讀 Zero to One 第 7 章</span>
+        </div>
+
+        <div class="task-input-row is-empty">
+          <span class="task-drag-handle" aria-hidden="true">≡</span>
+          <span class="task-number">6</span>
+          <input class="task-input" placeholder="第 6 項任務…" />
+        </div>
+      </div>
+
+      <footer class="sp-footer">
+        <span class="sp-progress">5 / 6 已填寫</span>
+        <button class="btn btn-primary">鎖定並開始</button>
+      </footer>
+    </section>
+
+    <p class="proto-caption">↑ Chrome Side Panel · 寬 400px</p>
+
+    <section class="proto-notes">
+      <h2>視覺重點</h2>
+      <ul>
+        <li>每列左側為「拖曳手柄 (≡)」+「圓形編號」，數字 1–6 隨拖曳即時重排。</li>
+        <li>第 2 項為拖曳中狀態：邊框轉藍、輕微上移、頂部顯示藍色插入位置指示線 <code>.drop-indicator</code>。</li>
+        <li>第 6 項為空輸入：虛線邊框、編號改虛線圈、無 box-shadow，明示「尚未填寫」。</li>
+        <li>底部 CTA「鎖定並開始」啟用條件 = 至少填 1 項 ∧ 未進入焦點階段（規劃階段獨有按鈕）。</li>
+        <li>進入焦點階段後本畫面隱藏，整體切換到 <a href="02-focus.html">畫面 2</a>。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

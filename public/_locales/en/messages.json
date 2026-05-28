@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "Daily Six",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "Pick six. Do them in order. The Ivy Lee method in your side panel.",
+    "description": "Extension description for Chrome Web Store."
+  },
+  "actionTitle": {
+    "message": "Daily Six — open side panel",
+    "description": "Tooltip on toolbar icon."
+  }
+}

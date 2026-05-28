@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Daily Six — Settings</title>
+    <link rel="stylesheet" href="_layout.css" />
+  </head>
+  <body>
+    <main class="hero">
+      <section class="hero-copy">
+        <span class="hero-eyebrow">Your pace · 你的節奏</span>
+        <h1 class="hero-headline">
+          Your pace, <em>your rules.</em>
+        </h1>
+        <p class="hero-headline-zh">
+          你的步調，<em>你決定</em>
+        </p>
+        <p class="hero-sub">
+          Bilingual UI, reminder times, retention window — all yours to tune. Data stays in your browser, nowhere else.
+        </p>
+        <p class="hero-sub-zh">
+          中／英雙語介面、提醒時間、保留天數，全部你說了算。資料只存在你自己的瀏覽器。
+        </p>
+        <ul class="hero-bullets">
+          <li>Switch 中 / English instantly — UI & notifications follow <span class="bullet-zh">· 中英無縫切換</span></li>
+          <li>Plan, review, stuck-nudge — all reminders optional <span class="bullet-zh">· 提醒全部可關</span></li>
+          <li>One-click JSON export · 100% local, no cloud <span class="bullet-zh">· 本機儲存，不上雲</span></li>
+        </ul>
+        <p class="hero-foot">100% local · 不需註冊 · No tracking</p>
+      </section>
+
+      <aside class="panel-frame">
+        <div class="side-panel">
+          <header class="sp-header">
+            <div class="sp-brand">
+              <button class="sp-icon-btn" type="button" aria-label="Back">←</button>
+              <span>設定 · Settings</span>
+            </div>
+          </header>
+
+          <div class="sp-body">
+            <section class="settings-group">
+              <h3>語言 · Language</h3>
+              <div class="settings-row">
+                <div class="settings-label">
+                  介面語言 · UI language
+                  <small>含通知 · includes notifications</small>
+                </div>
+                <div class="settings-control">
+                  <div class="lang-options">
+                    <button class="lang-option active" type="button">中文</button>
+                    <button class="lang-option" type="button">English</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-group">
+              <h3>提醒 · Reminders</h3>
+              <div class="settings-row">
+                <div class="settings-label">
+                  晚間規劃 · Evening plan
+                  <small>提醒挑出明天六件事</small>
+                </div>
+                <div class="settings-control">
+                  <input class="time-input" type="time" value="21:00" />
+                  <button class="toggle on" type="button" role="switch" aria-checked="true"></button>
+                </div>
+              </div>
+              <div class="settings-row">
+                <div class="settings-label">
+                  早晨檢視 · Morning review
+                  <small>提醒開始今天的清單</small>
+                </div>
+                <div class="settings-control">
+                  <input class="time-input" type="time" value="09:00" />
+                  <button class="toggle on" type="button" role="switch" aria-checked="true"></button>
+                </div>
+              </div>
+              <div class="settings-row">
+                <div class="settings-label">
+                  卡關提醒 · Stuck nudge
+                  <small>同一件超過 N 分鐘</small>
+                </div>
+                <div class="settings-control">
+                  <input class="number-input" type="number" value="45" />
+                  <button class="toggle" type="button" role="switch" aria-checked="false"></button>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-group">
+              <h3>資料 · Data</h3>
+              <div class="settings-row">
+                <div class="settings-label">
+                  保留天數 · Retention
+                  <small>超過自動清理</small>
+                </div>
+                <div class="settings-control">
+                  <input class="number-input" type="number" value="60" />
+                  <span>天 · days</span>
+                </div>
+              </div>
+              <div class="settings-row">
+                <div class="settings-label">
+                  匯出 JSON · Export
+                  <small>下載所有紀錄</small>
+                </div>
+                <div class="settings-control">
+                  <button class="btn btn-ghost" type="button">匯出 · Export</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="settings-group">
+              <h3>贊助 · Support</h3>
+              <div class="settings-row">
+                <div class="settings-label">
+                  贊助 · Support
+                  <small>請我喝杯咖啡 · Buy me a coffee</small>
+                </div>
+                <div class="settings-control">
+                  <button class="btn btn-ghost" type="button">☕ Buy me a coffee</button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <footer class="sp-footer">
+            <span class="sp-progress">v0.1.0</span>
+            <button class="btn btn-ghost" type="button">完成 · Done</button>
+          </footer>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Six — UI 原型導覽</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="proto-page">
+    <header class="proto-header">
+      <div>
+        <h1>Daily Six — UI 原型</h1>
+        <div class="proto-meta">v0.1.0 draft · 2026-05-25 · 對應 <code>SPEC.md</code> §7.5</div>
+      </div>
+      <nav class="proto-nav">
+        <a href="../SPEC.md">查看規格書</a>
+      </nav>
+    </header>
+
+    <section class="lead">
+      <h2>關於這份原型</h2>
+      <p>
+        以下為 Chrome Side Panel（寬 400px）內各主要狀態的純靜態 HTML/CSS 畫面，
+        不含任何 JavaScript 互動邏輯。設計參考自 Ivy Lee Method 的「單點焦點」與
+        「強制取捨」原則 — 視覺刻意克制、留白多、不使用花俏的圖示，避免工具本身造成分神。
+        每一張對應 <code>SPEC.md</code> §7.2 描述的視圖。
+      </p>
+    </section>
+
+    <section class="index-grid">
+      <a class="index-card" href="01-planning.html">
+        <span class="index-card-label">畫面 1 · Planning</span>
+        <span class="index-card-title">規劃階段</span>
+        <span class="index-card-desc">輸入今天最重要的 6 項任務、拖曳排序、鎖定並開始。</span>
+      </a>
+
+      <a class="index-card" href="02-focus.html">
+        <span class="index-card-label">畫面 2 · Focus</span>
+        <span class="index-card-title">焦點模式</span>
+        <span class="index-card-desc">Active Task 強調、後續任務鎖定、無法跳號完成。</span>
+      </a>
+
+      <a class="index-card" href="03-rollover.html">
+        <span class="index-card-label">畫面 3 · Rollover</span>
+        <span class="index-card-title">跨日轉移對話框</span>
+        <span class="index-card-desc">新一天首次打開時提示，使用者確認要轉移的昨日未完成項。</span>
+      </a>
+
+      <a class="index-card" href="04-reminder.html">
+        <span class="index-card-label">畫面 4 · Reminders</span>
+        <span class="index-card-title">主動提醒展示</span>
+        <span class="index-card-desc">Toolbar Badge 計數、桌面通知樣式，含三種情境對照。</span>
+      </a>
+
+      <a class="index-card" href="en/05-settings.html">
+        <span class="index-card-label">畫面 5 · Settings (EN)</span>
+        <span class="index-card-title">設定頁（英文）</span>
+        <span class="index-card-desc">展示 i18n 切換到 en 後的版本，含語系切換 UI。</span>
+      </a>
+    </section>
+
+    <section class="proto-notes">
+      <h2>原型限制</h2>
+      <ul>
+        <li>所有畫面皆為靜態快照，按鈕、拖曳、勾選皆無動作。</li>
+        <li>實際擴充功能將以 React + Vite 實作，狀態與互動見 <code>SPEC.md</code> §4–§9。</li>
+        <li>顏色與字體採 design tokens 形式定義於 <code>styles.css</code> 頂部 <code>:root</code>。</li>
+        <li>Side Panel 在 Chrome 內寬度可由使用者拉動（280–600px）；原型固定 400px。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

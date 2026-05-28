@@ -1,0 +1,77 @@
+{
+  "app": {
+    "title": "Daily Six",
+    "brand": "Daily Six"
+  },
+  "header": {
+    "settings": "設定",
+    "back": "返回",
+    "switchLang": "切換語言"
+  },
+  "planning": {
+    "prompt": "列出你今天最重要的 6 件事，依優先級排序。完成順序即執行順序。",
+    "placeholder": "第 {{n}} 項任務…",
+    "lockCta": "鎖定並開始",
+    "filledOf": "{{filled}} / {{total}} 已填寫",
+    "remove": "移除",
+    "max": "已達 6 項上限",
+    "empty": "從第 1 項開始，寫下今天最重要的事"
+  },
+  "focus": {
+    "prompt": "進行中 · 第 {{n}} 項",
+    "complete": "標記完成",
+    "focusedFor": "已專注 {{duration}}",
+    "lockedHint": "請先完成第 {{n}} 項",
+    "completed": "已完成 ({{n}})",
+    "undoLast": "撤回上一項",
+    "allDoneTitle": "✨ 今日完成",
+    "allDoneSub": "{{n}} 項已完成，恭喜！",
+    "planNext": "為明天規劃",
+    "progressFooter": "{{done}} / {{total}} 完成"
+  },
+  "rollover": {
+    "title": "昨天有 {{n}} 項任務未完成",
+    "body": "要把哪些移到今天？取消勾選的項目將被歸檔，不再出現在清單中。",
+    "moveCta": "轉移 {{n}} 項到今天",
+    "discardAll": "全部捨棄"
+  },
+  "settings": {
+    "title": "設定",
+    "language": "語言",
+    "languageDesc": "切換後立即生效，不需重新載入。",
+    "reminders": "提醒",
+    "morningPlan": "晨間規劃",
+    "morningPlanDesc": "提醒你寫今日 6 項。",
+    "eveningReview": "晚間回顧",
+    "eveningReviewDesc": "盤點完成數並規劃明日。",
+    "staleFocus": "停滯提醒",
+    "staleFocusDesc": "Active Task 超過 {{n}} 分鐘且工作時段。",
+    "data": "資料",
+    "retention": "歷史保留",
+    "retentionDesc": "超過天數的紀錄會自動清除。",
+    "export": "匯出 JSON",
+    "exportDesc": "下載所有資料的快照。",
+    "exportBtn": "匯出",
+    "reset": "重設全部",
+    "resetDesc": "輸入 DELETE 以確認。",
+    "resetBtn": "重設…",
+    "resetConfirmTitle": "確定要清除所有資料？",
+    "resetConfirmBody": "此動作無法復原。輸入 DELETE 以確認。",
+    "resetConfirmCta": "永久刪除",
+    "about": "關於",
+    "version": "版本",
+    "feedback": "送出回饋",
+    "saved": "所有變更已儲存。",
+    "done": "完成",
+    "support": "贊助",
+    "supportDesc": "如果這個 app 對你有幫助,請我喝杯咖啡。",
+    "supportBtn": "☕ Buy me a coffee"
+  },
+  "common": {
+    "minutes": "分鐘",
+    "days": "天",
+    "cancel": "取消",
+    "off": "關",
+    "on": "開"
+  }
+}

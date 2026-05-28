@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Six — Privacy Policy · 隱私政策</title>
+    <meta
+      name="description"
+      content="Daily Six does not collect, transmit, or share any data. Everything stays in your own browser."
+    />
+    <style>
+      :root {
+        --bg: #fafaf7;
+        --surface: #ffffff;
+        --border: #e5e3dc;
+        --text: #1a1a1a;
+        --text-dim: #6b6b65;
+        --locked: #a0a09a;
+        --accent: #2a4d6e;
+        --accent-soft: #e8eef4;
+        --success: #5a7a6a;
+        --danger: #b5483d;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.65;
+        font-size: 16px;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: var(--accent);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 19px;
+        font-weight: 700;
+      }
+      .brand-name {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .topbar a {
+        margin-left: auto;
+        font-size: 14px;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .topbar a:hover {
+        text-decoration: underline;
+      }
+      h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin: 0 0 4px;
+      }
+      .updated {
+        color: var(--text-dim);
+        font-size: 14px;
+        margin: 0 0 28px;
+      }
+      .tldr {
+        background: var(--accent-soft);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin: 0 0 36px;
+        font-size: 15px;
+      }
+      .tldr strong {
+        color: var(--accent);
+      }
+      h2 {
+        font-size: 21px;
+        letter-spacing: -0.01em;
+        margin: 40px 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+      p {
+        margin: 0 0 14px;
+      }
+      ul {
+        margin: 0 0 16px;
+        padding-left: 22px;
+      }
+      li {
+        margin: 6px 0;
+      }
+      code {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 1px 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 13px;
+        color: var(--accent);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8px 0 20px;
+        font-size: 15px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        vertical-align: top;
+      }
+      th {
+        background: var(--surface);
+        font-weight: 600;
+      }
+      td:first-child {
+        white-space: nowrap;
+      }
+      .answer-no {
+        color: var(--success);
+        font-weight: 600;
+      }
+      footer {
+        margin-top: 48px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+        color: var(--text-dim);
+        font-size: 13px;
+      }
+      footer a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <span class="brand-mark">6</span>
+        <span class="brand-name">Daily Six</span>
+        <a href="./index.html">← Home</a>
+      </div>
+
+      <h1>Privacy Policy · 隱私政策</h1>
+      <p class="updated">Last updated · 最後更新：2026-05-26</p>
+
+      <div class="tldr">
+        <strong>Short version:</strong> Daily Six does not collect, transmit,
+        or share any of your data. Everything lives in your own browser. We
+        don't have a server to send it to.<br />
+        <strong>簡短版：</strong
+        >Daily Six 不收集、不傳輸、也不分享你的任何資料。所有資料都只留在你自己的瀏覽器裡，我們根本沒有伺服器可以接收它。
+      </div>
+
+      <h2>What Daily Six is · 這是什麼</h2>
+      <p>
+        Daily Six is a Chrome extension that helps you practice the Ivy Lee
+        Method (six prioritized tasks per day, completed in order) from the
+        Chrome Side Panel. It is a single-purpose productivity tool.
+      </p>
+      <p>
+        Daily Six 是一個 Chrome 擴充功能，協助你在 Chrome 側邊欄中實踐 Ivy Lee
+        工作法（每天挑出六件重要的事，依序完成）。它是單一用途的生產力工具。
+      </p>
+
+      <h2>What data Daily Six stores · 儲存哪些資料</h2>
+      <p>
+        The extension stores the following inside your own browser, using the
+        <code>chrome.storage.local</code> API:
+      </p>
+      <ul>
+        <li>The tasks you create (text content you type)</li>
+        <li>The current day's list, plus historical days you have completed</li>
+        <li>Your settings (language preference, reminder times, retention window)</li>
+        <li>The completion timestamps of tasks you mark done</li>
+      </ul>
+      <p>
+        擴充功能使用 <code>chrome.storage.local</code> API，將以下內容儲存在你自己的瀏覽器裡：你建立的任務文字、當天的清單與你完成過的歷史紀錄、你的設定（語言、提醒時間、保留天數），以及你標記完成的時間戳記。
+      </p>
+      <p>
+        <strong>Where this is stored · 儲存位置：</strong> locally on your
+        device, inside the Chrome profile you are using. It is bound to your
+        browser; if you sign into Chrome Sync with
+        <code>chrome.storage.local</code> syncing enabled at the browser level,
+        Chrome itself may sync that data across your own devices. Daily Six does
+        not initiate or control that sync. （資料只存在你裝置上的 Chrome
+        設定檔中。若你在瀏覽器層級開啟了 Chrome Sync，Chrome 本身可能在你自己的裝置間同步這些資料；Daily Six 不會發起或控制這個同步。）
+      </p>
+
+      <h2>What Daily Six does NOT do · 我們不做的事</h2>
+      <ul>
+        <li>
+          It does <strong>not</strong> transmit any of your data to us, to any
+          server, or to any third party. · 不會把你的資料傳給我們、任何伺服器或第三方。
+        </li>
+        <li>
+          It does <strong>not</strong> include any analytics, telemetry, error
+          reporting, ads, or tracking SDKs. · 不含任何分析、遙測、錯誤回報、廣告或追蹤 SDK。
+        </li>
+        <li>
+          It does <strong>not</strong> request access to any web page contents.
+          The extension declares no host permissions. It cannot read or modify
+          the pages you visit. · 不要求存取任何網頁內容，也未宣告任何 host 權限，無法讀取或修改你瀏覽的頁面。
+        </li>
+        <li>
+          It does <strong>not</strong> require an account, sign-in, or any
+          identifier. · 不需要帳號、登入或任何識別碼。
+        </li>
+        <li>It does <strong>not</strong> share data with any service. · 不與任何服務分享資料。</li>
+      </ul>
+
+      <h2>Permissions used · 使用的權限</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Permission · 權限</th>
+            <th>Why we need it · 用途</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>sidePanel</code></td>
+            <td>
+              To register and open the side panel that hosts the entire app. ·
+              註冊並開啟承載整個應用程式的側邊欄。
+            </td>
+          </tr>
+          <tr>
+            <td><code>storage</code></td>
+            <td>
+              To save your tasks and settings to
+              <code>chrome.storage.local</code> on your device. · 將你的任務與設定儲存到裝置上的 <code>chrome.storage.local</code>。
+            </td>
+          </tr>
+          <tr>
+            <td><code>alarms</code></td>
+            <td>
+              To schedule the daily reminders you opt into (all reminders are
+              off by default until you enable them in Settings). · 排程你主動開啟的每日提醒（所有提醒預設關閉，需在設定中開啟）。
+            </td>
+          </tr>
+          <tr>
+            <td><code>notifications</code></td>
+            <td>
+              To display those reminders as Chrome notifications. · 以 Chrome 通知顯示這些提醒。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        No other permissions are requested. No host permissions are requested. ·
+        不要求任何其他權限，也不要求任何 host 權限。
+      </p>
+
+      <h2>Cookies and tracking · Cookie 與追蹤</h2>
+      <p>Daily Six uses none. · Daily Six 完全不使用。</p>
+
+      <h2>Children · 兒童</h2>
+      <p>
+        Daily Six is suitable for all ages. We do not collect any data from any
+        user, including children under 13. · Daily Six 適合所有年齡層使用。我們不收集任何使用者（包括 13 歲以下兒童）的任何資料。
+      </p>
+
+      <h2>Data export and deletion · 匯出與刪除</h2>
+      <ul>
+        <li>
+          <strong>Export · 匯出：</strong> Settings → "Export JSON" downloads a
+          snapshot of all stored data to a file you control. · 設定 →「匯出 JSON」會下載所有資料的快照成一個你掌控的檔案。
+        </li>
+        <li>
+          <strong>Delete · 刪除：</strong> Settings → "Reset all" wipes the
+          extension's local storage on this device after a confirmation prompt.
+          Uninstalling the extension also removes the data Chrome holds for it. ·
+          設定 →「全部重設」會在確認後清除此裝置上的擴充功能本機儲存；移除擴充功能也會一併刪除 Chrome 為它保存的資料。
+        </li>
+      </ul>
+
+      <h2>Changes to this policy · 政策變更</h2>
+      <p>
+        If the policy ever changes (for example, if a new permission becomes
+        necessary), the updated version will be committed to this repository
+        with a new "Last updated" date. The extension itself will continue to
+        operate offline; we do not have a mechanism to push policy changes to
+        you remotely. · 若政策有變動（例如需要新權限），更新版本會以新的「最後更新」日期提交到本儲存庫。擴充功能本身持續離線運作，我們沒有任何遠端推送政策變更的機制。
+      </p>
+
+      <h2>Contact · 聯絡方式</h2>
+      <p>
+        Open an issue on the project's GitHub repository, or email
+        <a href="mailto:shawn@orientalwow.com">shawn@orientalwow.com</a>. ·
+        在專案的 GitHub 儲存庫開 issue，或來信
+        <a href="mailto:shawn@orientalwow.com">shawn@orientalwow.com</a>。
+      </p>
+
+      <footer>
+        Daily Six · 100% local · No tracking · 本機儲存，不追蹤 ·
+        <a href="./index.html">Home</a>
+      </footer>
+    </div>
+  </body>
+</html>

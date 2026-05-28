@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <title>Daily Six — Promo 440×280</title>
+    <style>
+      :root {
+        --bg: #FAFAF7;
+        --accent: #2A4D6E;
+        --accent-soft: #E8EEF4;
+        --text: #1A1A1A;
+        --text-dim: #6B6B65;
+        --surface: #FFFFFF;
+        --border: #E5E3DC;
+      }
+      html, body {
+        width: 440px;
+        height: 280px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
+          "Microsoft JhengHei", sans-serif;
+      }
+      .tile {
+        width: 440px;
+        height: 280px;
+        position: relative;
+        background:
+          radial-gradient(circle at 88% 12%, rgba(42,77,110,0.10) 0%, transparent 55%),
+          linear-gradient(135deg, #FAFAF7 0%, #F1EEE6 100%);
+        padding: 28px 32px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+      .brand-mark {
+        width: 28px;
+        height: 28px;
+        border-radius: 7px;
+        background: var(--accent);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .headline {
+        font-size: 26px;
+        line-height: 1.1;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+      .headline em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .headline-zh {
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: var(--text-dim);
+        letter-spacing: -0.01em;
+        margin: 4px 0 0;
+      }
+      .headline-zh em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .sub {
+        font-size: 12px;
+        color: var(--text-dim);
+        margin: 8px 0 0;
+        line-height: 1.4;
+      }
+      .badges {
+        display: flex;
+        gap: 6px;
+      }
+      .badge {
+        font-size: 10px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        letter-spacing: 0.04em;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .six-dots {
+        position: absolute;
+        right: 28px;
+        top: 28px;
+        display: grid;
+        grid-template-columns: repeat(3, 12px);
+        gap: 8px;
+      }
+      .six-dots span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        opacity: 0.85;
+      }
+      .six-dots span:nth-child(5),
+      .six-dots span:nth-child(6) {
+        background: var(--border);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tile">
+      <div class="brand">
+        <span class="brand-mark">6</span>
+        <span>Daily Six</span>
+      </div>
+
+      <div class="six-dots">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+
+      <div>
+        <h1 class="headline">
+          Six things. <em>One at a time.</em>
+        </h1>
+        <p class="headline-zh">每天 <em>六件事</em>，一次只一件</p>
+        <p class="sub">Ivy Lee Method × Chrome Side Panel</p>
+      </div>
+
+      <div class="badges">
+        <span class="badge">Side Panel</span>
+        <span class="badge">100% Local</span>
+        <span class="badge">中／English</span>
+      </div>
+    </div>
+  </body>
+</html>
