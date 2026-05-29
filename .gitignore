@@ -8,3 +8,6 @@ dist/
 .DS_Store
 .obsidian/
 *.log
+
+# Local-only session memory (never publish — may reference private notes)
+JOURNAL.md
