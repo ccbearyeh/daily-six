@@ -90,6 +90,7 @@ export function defaultState(today: ISO8601Date): AppState {
     schemaVersion: SCHEMA_VERSION,
     currentDay: today,
     days: { [today]: emptyDay(today) },
+    recurringTasks: [],
     settings: defaultSettings(),
     lastActiveAt: Date.now(),
   };
