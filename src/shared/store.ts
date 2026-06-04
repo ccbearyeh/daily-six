@@ -276,12 +276,20 @@ export const useStore = create<StoreState & StoreActions>((set, get) => ({
     const prev = state.days[source];
     if (!prev) return;
     const today = todayISO();
-    const todayDay = state.days[today] ?? emptyDay(today);
+    const todayDay = state.days[today] ?? seededDay(today, state.recurringTasks);
     const carriedIds = new Set(
       decisions.filter((d) => d.carry).map((d) => d.taskId),
     );
+    // Recurring tasks already auto-fill today — don't let a carried-over copy
+    // of the same recurring task create a duplicate.
+    const seededRecurringIds = new Set(
+      todayDay.tasks
+        .map((t) => t.recurringId)
+        .filter((rid): rid is string => Boolean(rid)),
+    );
     const carried: Task[] = prev.tasks
       .filter((t) => !t.completed && carriedIds.has(t.id))
+      .filter((t) => !(t.recurringId && seededRecurringIds.has(t.recurringId)))
       .map((t, idx) => ({
         ...t,
         id: "t_" + nanoid(10),
