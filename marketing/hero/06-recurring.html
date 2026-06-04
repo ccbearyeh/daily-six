@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Daily Six — Daily Fixed Tasks</title>
+    <link rel="stylesheet" href="_layout.css" />
+  </head>
+  <body>
+    <main class="hero">
+      <section class="hero-copy">
+        <span class="hero-eyebrow">Routines · Side Panel</span>
+        <h1 class="hero-headline">
+          Pin the things you do <em>every day.</em>
+        </h1>
+        <p class="hero-headline-zh">
+          每天都要做的事，<em>釘一次就好</em>
+        </p>
+        <p class="hero-sub">
+          Tap 📌 on a task to make it a daily fixed task. It auto-fills at the top
+          of every new day's plan — so you never re-type your routines.
+        </p>
+        <p class="hero-sub-zh">
+          在任務上點 📌，就設為「每日固定工作」。隔天自動出現在清單最上方，例行工作不用再重打一次。
+        </p>
+        <ul class="hero-bullets">
+          <li>Auto-fills every new day <span class="bullet-zh">· 每天自動帶入</span></li>
+          <li>Manage the list in Settings <span class="bullet-zh">· 設定頁可檢視、排序、移除</span></li>
+          <li>Still counts toward your six <span class="bullet-zh">· 一樣算進每天六件</span></li>
+        </ul>
+        <p class="hero-foot">Bilingual · 中／English · 100% local</p>
+      </section>
+
+      <aside class="panel-frame">
+        <div class="side-panel">
+          <header class="sp-header">
+            <div class="sp-brand">
+              <span class="sp-brand-mark">6</span>
+              <span>Daily Six</span>
+              <span class="sp-date">週三 6/3</span>
+            </div>
+            <div class="sp-header-actions">
+              <button class="sp-lang-toggle" type="button">中</button>
+              <button class="sp-icon-btn" type="button" aria-label="Settings">⚙</button>
+            </div>
+          </header>
+
+          <div class="sp-body">
+            <p class="planning-prompt">為今天挑出最重要的六件事 · <strong>4 / 6</strong></p>
+
+            <ul class="task-list">
+              <li class="task-input-row">
+                <span class="task-drag-handle" aria-hidden="true">⋮⋮</span>
+                <span class="task-number">1</span>
+                <span class="task-input">巡視伺服器機房</span>
+                <button class="task-pin is-on" type="button" aria-pressed="true" aria-label="每日固定">📌</button>
+                <button class="task-row-remove" aria-label="remove">×</button>
+              </li>
+              <li class="task-input-row">
+                <span class="task-drag-handle" aria-hidden="true">⋮⋮</span>
+                <span class="task-number">2</span>
+                <span class="task-input">檢查每日備份狀態</span>
+                <button class="task-pin is-on" type="button" aria-pressed="true" aria-label="每日固定">📌</button>
+                <button class="task-row-remove" aria-label="remove">×</button>
+              </li>
+              <li class="task-input-row">
+                <span class="task-drag-handle" aria-hidden="true">⋮⋮</span>
+                <span class="task-number">3</span>
+                <span class="task-input">寄出 Q2 募款計畫初稿</span>
+                <button class="task-pin" type="button" aria-pressed="false" aria-label="每日固定">📌</button>
+                <button class="task-row-remove" aria-label="remove">×</button>
+              </li>
+              <li class="task-input-row">
+                <span class="task-drag-handle" aria-hidden="true">⋮⋮</span>
+                <span class="task-number">4</span>
+                <span class="task-input">和 Mei 對齊週會議程</span>
+                <button class="task-pin" type="button" aria-pressed="false" aria-label="每日固定">📌</button>
+                <button class="task-row-remove" aria-label="remove">×</button>
+              </li>
+              <li class="task-input-row is-empty">
+                <span class="task-drag-handle" aria-hidden="true">⋮⋮</span>
+                <span class="task-number">5</span>
+                <span class="task-input" style="color: var(--locked)">輸入第五件事…</span>
+              </li>
+            </ul>
+
+            <p class="planning-hint">📌 = 每日固定 · Pinned routines auto-fill tomorrow</p>
+          </div>
+
+          <footer class="sp-footer">
+            <span class="sp-progress">4 / 6</span>
+            <button class="btn btn-primary" type="button">開始今天 · Start</button>
+          </footer>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>
