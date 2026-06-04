@@ -202,6 +202,57 @@ export function SettingsView({ onSaved }: Props) {
       </section>
 
       <section className="settings-group">
+        <h2>{t("settings.recurring")}</h2>
+        <p className="settings-row-desc">{t("settings.recurringDesc")}</p>
+        {sortedRecurring.length === 0 ? (
+          <p className="settings-empty">{t("settings.recurringEmpty")}</p>
+        ) : (
+          <ul className="recurring-list">
+            {sortedRecurring.map((r, idx) => (
+              <li key={r.id} className="recurring-row">
+                <span className="recurring-pin" aria-hidden="true">📌</span>
+                <span className="recurring-text">{r.text}</span>
+                <div className="recurring-actions">
+                  <button
+                    type="button"
+                    className="recurring-move"
+                    onClick={() => moveRecurring(r.id, -1)}
+                    disabled={idx === 0}
+                    aria-label={t("settings.recurringMoveUp")}
+                    title={t("settings.recurringMoveUp")}
+                  >
+                    ↑
+                  </button>
+                  <button
+                    type="button"
+                    className="recurring-move"
+                    onClick={() => moveRecurring(r.id, 1)}
+                    disabled={idx === sortedRecurring.length - 1}
+                    aria-label={t("settings.recurringMoveDown")}
+                    title={t("settings.recurringMoveDown")}
+                  >
+                    ↓
+                  </button>
+                  <button
+                    type="button"
+                    className="task-row-remove"
+                    onClick={() => {
+                      removeRecurringTask(r.id);
+                      announce();
+                    }}
+                    aria-label={t("settings.recurringRemove")}
+                    title={t("settings.recurringRemove")}
+                  >
+                    ✕
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section className="settings-group">
         <h2>{t("settings.data")}</h2>
 
         <div className="settings-row">
