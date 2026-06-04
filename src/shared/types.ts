@@ -53,6 +53,8 @@ export interface AppState {
   schemaVersion: 1;
   currentDay: ISO8601Date;
   days: Record<ISO8601Date, DayRecord>;
+  /** Daily fixed tasks that auto-fill into each new day's plan. */
+  recurringTasks: RecurringTask[];
   settings: Settings;
   lastActiveAt: number;
 }
