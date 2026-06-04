@@ -135,6 +135,7 @@ export const useStore = create<StoreState & StoreActions>((set, get) => ({
       completedAt: null,
       createdAt: Date.now(),
       carriedFrom: null,
+      recurringId: null,
     };
     const updatedDay: DayRecord = {
       ...today,
