@@ -187,6 +187,16 @@ function SortableTaskRow({
       {task.carriedFrom && <span className="carried-tag">↻</span>}
       <button
         type="button"
+        className={`task-pin${task.recurringId ? " is-on" : ""}`}
+        onClick={onToggleRecurring}
+        aria-pressed={Boolean(task.recurringId)}
+        aria-label={t("planning.pin")}
+        title={task.recurringId ? t("planning.pinnedTitle") : t("planning.pinTitle")}
+      >
+        📌
+      </button>
+      <button
+        type="button"
         className="task-row-remove"
         onClick={onRemove}
         aria-label={t("planning.remove")}
