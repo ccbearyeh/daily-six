@@ -22,8 +22,13 @@ export async function saveState(state: AppState): Promise<void> {
 }
 
 function migrate(state: AppState): AppState {
-  if (state.schemaVersion === SCHEMA_VERSION) return state;
-  return state;
+  // Backfill fields added after the initial release so older stored states
+  // (which predate `recurringTasks`) load without breaking.
+  const patched: AppState = { ...state };
+  if (!Array.isArray(patched.recurringTasks)) {
+    patched.recurringTasks = [];
+  }
+  return patched;
 }
 
 export function subscribeState(
