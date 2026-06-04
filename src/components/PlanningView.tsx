@@ -132,9 +132,17 @@ interface SortableRowProps {
   placeholder: string;
   onChange: (text: string) => void;
   onRemove: () => void;
+  onToggleRecurring: () => void;
 }
 
-function SortableTaskRow({ task, index, placeholder, onChange, onRemove }: SortableRowProps) {
+function SortableTaskRow({
+  task,
+  index,
+  placeholder,
+  onChange,
+  onRemove,
+  onToggleRecurring,
+}: SortableRowProps) {
   const { t } = useTranslation();
   const sortable = useSortable({ id: task.id });
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = sortable;
