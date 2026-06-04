@@ -225,4 +225,5 @@ Before clicking **Submit for review** on the Developer Dashboard:
 2. `02-focus.png` — shows the differentiator (sequential locking)
 3. `03-all-done.png` — emotional payoff
 4. `04-rollover.png` — shows the smart-rollover answer to "what about unfinished?"
-5. `05-settings.png` — shows bilingual support and privacy posture
+5. `06-recurring.png` — shows daily fixed tasks (📌 pin → auto-fill every day)
+6. `05-settings.png` — shows bilingual support and privacy posture
