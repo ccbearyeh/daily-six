@@ -29,6 +29,9 @@ interface StoreActions {
   uncompleteTask: (id: string) => void;
   applyRollover: (decisions: RolloverDecision[]) => void;
   dismissRolloverDay: () => void;
+  toggleRecurring: (taskId: string) => void;
+  removeRecurringTask: (recurringId: string) => void;
+  reorderRecurringTasks: (orderedIds: string[]) => void;
   setLocale: (locale: Settings["locale"]) => void;
   updateSettings: (patch: Partial<Settings>) => void;
   resetAll: () => Promise<void>;
