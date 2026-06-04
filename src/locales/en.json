@@ -15,7 +15,10 @@
     "filledOf": "{{filled}} / {{total}} filled",
     "remove": "Remove",
     "max": "Six is the limit.",
-    "empty": "Start with task 1 — write down what matters today."
+    "empty": "Start with task 1 — write down what matters today.",
+    "pin": "Daily fixed",
+    "pinTitle": "Make this a daily fixed task",
+    "pinnedTitle": "Daily fixed task (click to unpin)"
   },
   "focus": {
     "prompt": "In progress · Task {{n}}",
