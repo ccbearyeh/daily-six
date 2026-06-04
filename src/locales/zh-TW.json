@@ -15,7 +15,10 @@
     "filledOf": "{{filled}} / {{total}} 已填寫",
     "remove": "移除",
     "max": "已達 6 項上限",
-    "empty": "從第 1 項開始，寫下今天最重要的事"
+    "empty": "從第 1 項開始，寫下今天最重要的事",
+    "pin": "每日固定",
+    "pinTitle": "設為每日固定工作",
+    "pinnedTitle": "每日固定工作（點擊取消固定）"
   },
   "focus": {
     "prompt": "進行中 · 第 {{n}} 項",
