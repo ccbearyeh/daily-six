@@ -27,6 +27,7 @@ export function PlanningView() {
   const updateTaskText = useStore((s) => s.updateTaskText);
   const removeTask = useStore((s) => s.removeTask);
   const reorderTasks = useStore((s) => s.reorderTasks);
+  const toggleRecurring = useStore((s) => s.toggleRecurring);
   const lockAndStart = useStore((s) => s.lockAndStart);
 
   const tasks = [...day.tasks].sort((a, b) => a.order - b.order);
