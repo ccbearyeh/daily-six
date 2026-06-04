@@ -152,12 +152,22 @@ export const useStore = create<StoreState & StoreActions>((set, get) => ({
     const state = get();
     const today = todayRecord(state);
     if (today.locked) return;
+    const newText = text.slice(0, MAX_TASK_LEN);
+    const target = today.tasks.find((t) => t.id === id);
     const tasks = today.tasks.map((t) =>
-      t.id === id ? { ...t, text: text.slice(0, MAX_TASK_LEN) } : t,
+      t.id === id ? { ...t, text: newText } : t,
     );
+    // Keep the recurring template in sync if this task is pinned as daily-fixed.
+    let recurringTasks = state.recurringTasks;
+    if (target?.recurringId) {
+      recurringTasks = (state.recurringTasks ?? []).map((r) =>
+        r.id === target.recurringId ? { ...r, text: newText.trim() } : r,
+      );
+    }
     const updatedDay = { ...today, tasks };
     const next = {
       ...state,
+      recurringTasks,
       days: { ...state.days, [updatedDay.date]: updatedDay },
     };
     persist(next).then((p) => set(p));
