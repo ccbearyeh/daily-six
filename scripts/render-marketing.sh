@@ -38,6 +38,7 @@ shot "02-focus.png"     "$HERO/02-focus.html"      1280 800
 shot "03-all-done.png"  "$HERO/03-all-done.html"   1280 800
 shot "04-rollover.png"  "$HERO/04-rollover.html"   1280 800
 shot "05-settings.png"  "$HERO/05-settings.html"   1280 800
+shot "06-recurring.png" "$HERO/06-recurring.html"  1280 800
 shot "promo-440x280.png" "$PROMO/tile-440x280.html" 440  280
 
 echo ""
