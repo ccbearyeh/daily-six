@@ -649,6 +649,67 @@ button {
   gap: 8px;
   flex-shrink: 0;
 }
+
+.settings-empty {
+  font-size: 13px;
+  color: var(--text-dim);
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  margin: 8px 0 0;
+}
+
+.recurring-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.recurring-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 6px;
+}
+.recurring-pin {
+  font-size: 13px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.recurring-text {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text);
+  min-width: 0;
+  word-break: break-word;
+}
+.recurring-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.recurring-move {
+  background: transparent;
+  border: 0;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.recurring-move:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--accent-soft);
+}
+.recurring-move:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
 .lang-options {
   display: flex;
   gap: 4px;
