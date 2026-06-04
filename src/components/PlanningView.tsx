@@ -74,6 +74,7 @@ export function PlanningView() {
                 placeholder={t("planning.placeholder", { n: idx + 1 })}
                 onChange={(text) => updateTaskText(task.id, text)}
                 onRemove={() => removeTask(task.id)}
+                onToggleRecurring={() => toggleRecurring(task.id)}
               />
             ))}
           </ul>
