@@ -53,9 +53,31 @@ function findRolloverSource(state: AppState): ISO8601Date | null {
   return incomplete.length > 0 ? state.currentDay : null;
 }
 
+/** Build the Task list a brand-new day should start with, from recurring templates. */
+function seededTasks(recurring: RecurringTask[] | undefined): Task[] {
+  return [...(recurring ?? [])]
+    .sort((a, b) => a.order - b.order)
+    .slice(0, MAX_TASKS)
+    .map((r, idx) => ({
+      id: "t_" + nanoid(10),
+      text: r.text,
+      order: idx,
+      completed: false,
+      completedAt: null,
+      createdAt: Date.now(),
+      carriedFrom: null,
+      recurringId: r.id,
+    }));
+}
+
+/** A fresh day pre-filled with the user's daily-fixed (recurring) tasks. */
+function seededDay(date: ISO8601Date, recurring: RecurringTask[] | undefined): DayRecord {
+  return { ...emptyDay(date), tasks: seededTasks(recurring) };
+}
+
 function todayRecord(state: AppState): DayRecord {
   const today = todayISO();
-  if (!state.days[today]) state.days[today] = emptyDay(today);
+  if (!state.days[today]) state.days[today] = seededDay(today, state.recurringTasks);
   return state.days[today];
 }
 
