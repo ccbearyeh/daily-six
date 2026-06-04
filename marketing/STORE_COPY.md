@@ -32,7 +32,8 @@ That's the whole app. No projects, no tags, no backlog, no streaks.
 
 —— How it works ——
 
-1. Plan. Add up to six tasks. Drag to reorder by priority.
+1. Plan. Add up to six tasks. Drag to reorder by priority. Pin a daily
+   routine with 📌 and it auto-fills every new day.
 2. Focus. Only the next task is unlocked. Finish it to reveal the next.
 3. Done. When six are checked, the day ends. Tomorrow you start fresh.
 4. Carry over. Unfinished tasks ask you each morning whether to bring
