@@ -205,12 +205,12 @@ Daily Six 幫助使用者在 Chrome 側邊欄中實踐 Ivy Lee Method：每天�
 
 Before clicking **Submit for review** on the Developer Dashboard:
 
-- [ ] `daily-six-v0.1.0.zip` uploaded (located in `release/`)
+- [ ] `daily-six-0.1.2.zip` uploaded (located in project root)
 - [ ] Name, summary, detailed description filled for both **English** and **繁體中文**
 - [ ] Category set to **Productivity** in both locales
 - [ ] Single-purpose statement filled
 - [ ] All four permission justifications filled (sidePanel, storage, alarms, notifications)
-- [ ] At least 1 screenshot uploaded (1280×800) — recommended: all 5 from `marketing/screenshots/`
+- [ ] At least 1 screenshot uploaded (1280×800) — recommended: all 6 from `marketing/screenshots/`
 - [ ] Optional: promo tile uploaded (440×280 from `marketing/screenshots/promo-440x280.png`)
 - [ ] Icon 128×128 will be picked up from `public/icon-128.png` inside the zip — no separate upload needed
 - [ ] **Privacy practices** tab completed (see `PRIVACY.md` for the answers)
