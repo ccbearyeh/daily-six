@@ -98,7 +98,7 @@ export const useStore = create<StoreState & StoreActions>((set, get) => ({
     const next: AppState = { ...loaded };
 
     if (!next.days[today]) {
-      next.days[today] = emptyDay(today);
+      next.days[today] = seededDay(today, next.recurringTasks);
     }
 
     const rolloverFrom = findRolloverSource(next);
