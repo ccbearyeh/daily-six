@@ -324,6 +324,76 @@ export const useStore = create<StoreState & StoreActions>((set, get) => ({
     });
   },
 
+  toggleRecurring(taskId) {
+    const state = get();
+    const today = todayRecord(state);
+    if (today.locked) return;
+    const task = today.tasks.find((t) => t.id === taskId);
+    if (!task) return;
+    let recurringTasks = [...(state.recurringTasks ?? [])];
+    let recurringId: string | null;
+    if (task.recurringId) {
+      // Unpin: drop the template and re-number the rest.
+      recurringTasks = recurringTasks
+        .filter((r) => r.id !== task.recurringId)
+        .map((r, idx) => ({ ...r, order: idx }));
+      recurringId = null;
+    } else {
+      // Pin: snapshot this task's text as a new recurring template.
+      const text = task.text.trim();
+      if (!text) return;
+      recurringId = "r_" + nanoid(10);
+      recurringTasks = [
+        ...recurringTasks,
+        { id: recurringId, text, order: recurringTasks.length },
+      ];
+    }
+    const tasks = today.tasks.map((t) =>
+      t.id === taskId ? { ...t, recurringId } : t,
+    );
+    const updatedDay = { ...today, tasks };
+    const next: AppState = {
+      ...state,
+      recurringTasks,
+      days: { ...state.days, [updatedDay.date]: updatedDay },
+    };
+    persist(next).then((p) => set(p));
+  },
+
+  removeRecurringTask(recurringId) {
+    const state = get();
+    const recurringTasks = (state.recurringTasks ?? [])
+      .filter((r) => r.id !== recurringId)
+      .map((r, idx) => ({ ...r, order: idx }));
+    // Clear the pin flag on today's matching task so its 📌 reads as off.
+    const today = todayISO();
+    const days = { ...state.days };
+    const todayRec = days[today];
+    if (todayRec) {
+      days[today] = {
+        ...todayRec,
+        tasks: todayRec.tasks.map((t) =>
+          t.recurringId === recurringId ? { ...t, recurringId: null } : t,
+        ),
+      };
+    }
+    const next: AppState = { ...state, recurringTasks, days };
+    persist(next).then((p) => set(p));
+  },
+
+  reorderRecurringTasks(orderedIds) {
+    const state = get();
+    const byId = new Map((state.recurringTasks ?? []).map((r) => [r.id, r]));
+    const recurringTasks = orderedIds
+      .map((id, idx) => {
+        const r = byId.get(id);
+        return r ? { ...r, order: idx } : null;
+      })
+      .filter((r): r is RecurringTask => r !== null);
+    const next: AppState = { ...state, recurringTasks };
+    persist(next).then((p) => set(p));
+  },
+
   setLocale(locale) {
     const state = get();
     const next: AppState = {
