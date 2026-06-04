@@ -14,6 +14,23 @@ export function SettingsView({ onSaved }: Props) {
   const updateSettings = useStore((s) => s.updateSettings);
   const resetAll = useStore((s) => s.resetAll);
   const exportJSON = useStore((s) => s.exportJSON);
+  const recurringTasks = useStore((s) => s.recurringTasks);
+  const removeRecurringTask = useStore((s) => s.removeRecurringTask);
+  const reorderRecurringTasks = useStore((s) => s.reorderRecurringTasks);
+
+  const sortedRecurring = [...(recurringTasks ?? [])].sort(
+    (a, b) => a.order - b.order,
+  );
+
+  function moveRecurring(id: string, dir: -1 | 1) {
+    const ids = sortedRecurring.map((r) => r.id);
+    const idx = ids.indexOf(id);
+    const swap = idx + dir;
+    if (idx < 0 || swap < 0 || swap >= ids.length) return;
+    [ids[idx], ids[swap]] = [ids[swap], ids[idx]];
+    reorderRecurringTasks(ids);
+    announce();
+  }
 
   const [resetConfirmOpen, setResetConfirmOpen] = useState(false);
   const [resetInput, setResetInput] = useState("");
