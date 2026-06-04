@@ -4,6 +4,7 @@ import {
   type AppState,
   type DayRecord,
   type ISO8601Date,
+  type RecurringTask,
   type Settings,
   type Task,
   defaultState,
