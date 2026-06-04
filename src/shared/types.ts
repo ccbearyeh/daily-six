@@ -9,6 +9,15 @@ export interface Task {
   completedAt: number | null;
   createdAt: number;
   carriedFrom: ISO8601Date | null;
+  /** Links this task to a RecurringTask template when it was auto-filled or pinned. */
+  recurringId?: string | null;
+}
+
+/** A "daily fixed" task definition that auto-fills into every new day's plan. */
+export interface RecurringTask {
+  id: string;
+  text: string;
+  order: number;
 }
 
 export interface DayRecord {
