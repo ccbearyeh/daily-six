@@ -50,6 +50,7 @@ that practice, designed to stay out of your way while you work.
 • Side Panel UI — opens beside any tab, never steals your active window
 • Sequential focus — locked tasks make the next step unmistakable
 • Smart rollover — explicit carry-over, never silent accumulation
+• Daily fixed tasks — pin a routine with 📌 and it auto-fills every new day, so you never re-type it
 • Bilingual — Traditional Chinese & English, fully synced (UI + notifications)
 • Reminders — evening planning, morning review, stuck-task pings (all optional)
 • 100% local — data lives in your browser via chrome.storage.local
